@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>BLockchain Master - Verification</title>
+{% endblock %}
+{% block body %}
+<header><h1>Blockchain Master</h1></header>
+{% if r=="True" %}
+    <h4>Our chain has been replaced.</h4><br>
+{% else %}
+    <h4>Our chain is authoritative and the defacto one.</h4>
+{% endif %}
+<h3>To have a look at the chain, <a href="/chain">Click here</a></h3>
+{% endblock %}
