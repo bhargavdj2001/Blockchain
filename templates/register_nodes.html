@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>Blockchain Master</title>
+{% endblock %}
+
+{% block body %}
+<header><h1>Blockchain Master</h1></header>
+{% if t==1 %}
+<div>
+    <form name="form-r" action="/nodes/register" method="POST">
+        <label>Node address : </label><br>
+        <input type="text" name="n" id="n"><br>
+        <input type="submit" name="submit" value="Register">
+    </form>
+</div>
+{% else %}
+<h4>The node has been registered.</h4>
+<a href="/">Home</a>
+{% endblock %}

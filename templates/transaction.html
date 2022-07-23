@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>Blockchain Master - Transaction</title>
+{% endblock %}
+
+{% block body %}
+<header>
+    ̥<h1>Block Buddy</h1>
+</header>
+    {% if t==1 %} 
+        <form name="form-t" action="/transactions/new" method="POST">
+            <label>Sender : </label><br>
+            <input type="text" name="sender" id="sender" placeholder="Sender's Address"><br>
+            <label>Recipient : </label><br>
+            <input type="text" name="recipient" id="recipient" placeholder="Recipient's Address"><br>
+            <label>Amount : </label><br>
+            <input type="number" name="amount" id="amount" placeholder="Amount to be Transferred"><br>
+            <input type="submit" name="submit" value="Create">
+            <input type="reset" name="reset" value="Reset">
+        </form>
+    {% else %}
+        <h4>The transaction will be added to Block {{index}}.</h4>
+        <h5>Thank you!</h5>
+        <a href="/">Home</a>
+    {% endif %}
+{% endblock %}

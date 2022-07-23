@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>Blockchain Master - Chain</title>
+{% endblock %}
+
+{% block body %}
+<header><h1>Blockchain Master</h1></header>
+<div class="items">
+    {% if l > 1 %}
+        {% for block in chain %}
+            <ul>    
+                <li>
+                    <ul>
+                        <li>Index : {{block.index}}</li>
+                        <li>Timestamp : {{block.timestamp}}</li>
+                        <li>Transactions : 
+                            <ul>
+                                {% for t in block.transactions %}
+                                    <li>Sender : {{t.sender}}</li>
+                                    <li>Recipient : {{t.recipient}}</li>
+                                    <li>Amount : {{t.amount}}</li>
+                                    <br>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                        <li>Proof : {{block.proof}}</li>
+                        <li>Previous Hash : {{block.previous_hash}}</li>
+                    </ul>
+                    <br>
+                </li>
+                <br>
+            </ul>
+        {% endfor %}
+    {% else %}
+        <h4>There are no blocks yet.</h4>
+    {% endif %}
+    <a href="/">Home</a>
+</div>
+{% endblock %}

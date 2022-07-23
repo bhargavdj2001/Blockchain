@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block head %} 
+<title>Blockchain Master</title>
+{% endblock %}
+
+{% block body %}
+<header>
+    <h1>Blockchain Master</h1>
+</header>
+<div class="choices">
+    <ul>
+        <li><a href="/mine">Mine a New Block</a></li>
+        <li><a href="/transactions/new">Create a New Transaction</a></li>
+        <li><a href="/chain">View the Chain</a></li>
+        <li><a href="/nodes/register">Register Node</a></li>
+    </ul>
+</div>
+{% endblock %}
