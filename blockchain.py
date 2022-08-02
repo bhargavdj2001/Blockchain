@@ -168,7 +168,6 @@ class Blockchain(object):
 
 # Instantiate our Node
 app = Flask(__name__)
-port = 5000
 
 # Generate a globally unique address for this node
 node_identifier = str(uuid4()).replace('-', '')
@@ -234,4 +233,4 @@ def consensus():
     return render_template('verify.html', r = replaced)
 
 if __name__=="__main__":
-    app.run(host='0.0.0.0', port=port)
+    app.run(debug=True)
