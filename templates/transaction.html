@@ -5,22 +5,56 @@
 
 {% block body %}
 <header>
-    ̥<h1>Block Buddy</h1>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary bg-primary-subtle m-md-3 p-md-3 rounded">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">Blockchain Master</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/mine">Mine</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/transactions/new">Transaction</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/chain">Chain</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/nodes/register">Register</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/nodes/resolve">Consensus</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
 </header>
     {% if t==1 %} 
-        <form name="form-t" action="/transactions/new" method="POST">
-            <label>Sender : </label><br>
-            <input type="text" name="sender" id="sender" placeholder="Sender's Address"><br>
-            <label>Recipient : </label><br>
-            <input type="text" name="recipient" id="recipient" placeholder="Recipient's Address"><br>
-            <label>Amount : </label><br>
-            <input type="number" name="amount" id="amount" placeholder="Amount to be Transferred"><br>
-            <input type="submit" name="submit" value="Create">
-            <input type="reset" name="reset" value="Reset">
-        </form>
+        <form class="m-lg-5" name="form-t" action="/transactions/new" method="POST">
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Sender</label>
+              <input type="text" name="sender" id="sender" class="form-control border border-primary-subtle" aria-describedby="emailHelp">
+              <div id="emailHelp" class="form-text">The address of the Sender</div>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Receiver</label>
+              <input type="text" name="recipient" id="recipient" class="form-control border border-primary-subtle">
+              <div id="emailHelp" class="form-text">The address of the Receiver (Beneficiary)</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Amount</label>
+                <input type="number" name="amount" id="amount" class="form-control  border border-primary-subtle">
+              </div>
+            <button type="submit" class="btn btn-primary my-lg-3">Submit</button>
+          </form>
     {% else %}
-        <h4>The transaction will be added to Block {{index}}.</h4>
-        <h5>Thank you!</h5>
-        <a href="/">Home</a>
+    <div class="m-lg-4">
+        <h4 class="m-4">The transaction will be added to Block {{index}}.</h4>
+        <h5 class="m-4">Thank you!</h5>
+    </div>
     {% endif %}
 {% endblock %}
